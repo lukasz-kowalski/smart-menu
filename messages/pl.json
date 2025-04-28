@@ -1,0 +1,13 @@
+{  "App" : {
+  "appName": "Smart Menu"
+},
+"Meta": {
+  "description": "Smart Menu - Inteligentne menu dla Twojej restauracji"
+},
+  "Sidebar": {
+    "dashboard": "Panel główny",
+    "menu": "Menu",
+    "inventory": "Magazyn",
+    "alerts": "Alerty"
+  }
+}
