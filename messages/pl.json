@@ -10,5 +10,8 @@
     "menu": "Menu",
     "inventory": "Magazyn",
     "alerts": "Alerty"
+  },
+  "Topbar": {
+    "profile": "Link do profilu restauracji"
   }
 }

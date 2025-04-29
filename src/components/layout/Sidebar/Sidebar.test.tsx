@@ -15,9 +15,11 @@ describe('Sidebar', () => {
 
     const desktopSidebar = screen.queryByRole('complementary');
     const mobileSidebarTrigger = screen.getByRole('button');
+    const companyConfigLink = screen.getByLabelText('Topbar.profile');
 
     expect(desktopSidebar).not.toBeInTheDocument();
     expect(mobileSidebarTrigger).toBeInTheDocument();
+    expect(companyConfigLink).toBeInTheDocument();
   });
 
   it('should display desktop version when width is above 768px', () => {
@@ -26,9 +28,11 @@ describe('Sidebar', () => {
 
     const desktopSidebar = screen.getByRole('complementary');
     const mobileSidebarTrigger = screen.queryByRole('button');
+    const companyConfigLink = screen.queryByLabelText('Topbar.profile');
 
     expect(desktopSidebar).toBeInTheDocument();
     expect(mobileSidebarTrigger).not.toBeInTheDocument();
+    expect(companyConfigLink).not.toBeInTheDocument();
   });
 
   it('should open sidebar on mobile version', async () => {

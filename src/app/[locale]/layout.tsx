@@ -6,6 +6,7 @@ import { getMessages } from 'next-intl/server';
 
 import { routing } from '@/i18n/routing';
 import { Sidebar } from '@/components/layout/Sidebar';
+import { Topbar } from '@/components/layout/Topbar';
 
 import '../globals.css';
 
@@ -34,9 +35,10 @@ export default async function LocaleLayout({ children, params }: PropsWithChildr
     <html lang={locale}>
       <body className="antialiased bg-slate-50">
         <NextIntlClientProvider locale={locale}>
-          <div className="mx-auto max-w-7xl px-4 py-6">
+          <Topbar />
+          <div className="mx-auto max-w-7xl px-4 py-2">
             <Sidebar />
-            <main className="flex-1 md:ml-64 p-4">{children}</main>
+            <main className="flex-1 md:ml-32 p-4">{children}</main>
           </div>
         </NextIntlClientProvider>
       </body>

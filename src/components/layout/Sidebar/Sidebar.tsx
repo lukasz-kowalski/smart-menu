@@ -1,11 +1,12 @@
 'use client';
 
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
-import { Menu, UtensilsCrossed, Warehouse, Bell, Home } from 'lucide-react';
+import { Menu, UtensilsCrossed, Warehouse, Bell, Home, User2 } from 'lucide-react';
 import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
+import { Link } from '@/i18n/navigation';
 import NavLinks from '@/components/layout/Sidebar/NavLinks';
 import { NavItem } from '@/components/layout/Sidebar/NavLinks.types';
 
@@ -71,7 +72,9 @@ const Sidebar = () => {
           <NavLinks navItems={navItems} closeMenu={closeMenu} />
         </SheetContent>
       </Sheet>
-      <span className="font-semibold text-lg">{t('App.appName')}</span>
+      <Link href="/company-config" aria-label={t('Topbar.profile')}>
+        <User2 className="h-6 w-6" />
+      </Link>
     </div>
   );
 };

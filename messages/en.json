@@ -10,5 +10,8 @@
     "menu": "Menu",
     "inventory": "Inventory",
     "alerts": "Alerts"
+  },
+  "Topbar": {
+    "profile": "Link to restaurant profile"
   }
 }
