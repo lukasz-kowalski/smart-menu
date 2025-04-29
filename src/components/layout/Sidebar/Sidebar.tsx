@@ -47,7 +47,7 @@ const Sidebar = () => {
 
   if (isDesktop) {
     return (
-      <aside className="hidden md:fixed md:inset-y-0 md:left-0 md:flex md:w-64 md:flex-col md:border-r md:bg-slate-900 md:text-slate-100 md:shadow-sm z-30">
+      <aside className="fixed inset-y-0 left-0 flex w-64 flex-col border-r bg-slate-900 text-slate-100 shadow-sm z-30">
         <div className="h-16 flex items-center justify-center px-4 border-b border-slate-700">
           <span className="text-xl font-bold tracking-tight">
             {t("App.appName")}
@@ -59,7 +59,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="md:hidden p-4 border-b flex items-center justify-between">
+    <div className="p-4 border-b flex items-center justify-between">
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
           <button className="p-2 rounded-md hover:bg-muted">

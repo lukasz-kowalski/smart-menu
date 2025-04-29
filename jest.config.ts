@@ -6,7 +6,7 @@ module.exports = {
     "<rootDir>/dist/",
     "<rootDir>/deploy/",
   ],
-  testPathIgnorePatterns: ["/node_modules/"],
+  testPathIgnorePatterns: ["/node_modules/", "/e2e/"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
