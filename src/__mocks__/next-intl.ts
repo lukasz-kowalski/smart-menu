@@ -1,3 +1,3 @@
 export const useTranslations = (namespace?: string) => {
-  return (key: string) => `${namespace ? `${namespace}.` : ""}${key}`;
+  return (key: string) => `${namespace ? `${namespace}.` : ''}${key}`;
 };

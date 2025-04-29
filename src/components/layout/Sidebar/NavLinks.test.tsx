@@ -1,18 +1,18 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react';
 
-import NavLinks from "@/components/layout/Sidebar/NavLinks";
+import NavLinks from '@/components/layout/Sidebar/NavLinks';
 
-describe("NavLinks", () => {
-  it("should render component correctly", async () => {
+describe('NavLinks', () => {
+  it('should render component correctly', async () => {
     const navItems = [
       {
-        label: "Dashboard",
-        href: "/",
+        label: 'Dashboard',
+        href: '/',
         icon: <span>Icon</span>,
       },
       {
-        label: "Menu",
-        href: "/menu",
+        label: 'Menu',
+        href: '/menu',
         icon: <span>Icon</span>,
       },
     ];
@@ -21,10 +21,10 @@ describe("NavLinks", () => {
 
     render(<NavLinks navItems={navItems} closeMenu={closeMenu} />);
 
-    const link = screen.getByText("Dashboard");
+    const link = screen.getByText('Dashboard');
     expect(link).toBeInTheDocument();
 
-    const nav = screen.getByRole("navigation").querySelectorAll("a");
+    const nav = screen.getByRole('navigation').querySelectorAll('a');
     expect(nav.length).toBe(2);
   });
 });

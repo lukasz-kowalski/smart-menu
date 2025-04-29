@@ -1,4 +1,4 @@
-export const usePathname = jest.fn(() => "/");
+export const usePathname = jest.fn(() => '/');
 export const useRouter = jest.fn(() => ({
   push: jest.fn(),
   replace: jest.fn(),
@@ -6,10 +6,11 @@ export const useRouter = jest.fn(() => ({
   back: jest.fn(),
 }));
 
-export const getPathname = jest.fn(() => "/");
+export const getPathname = jest.fn(() => '/');
 
 export const redirect = jest.fn();
 
+// eslint-disable-next-line
 export const Link = ({ href, children, ...props }: any) => (
   <a href={href} {...props}>
     {children}
