@@ -9,7 +9,7 @@ describe('Sidebar', () => {
 
     const desktopSidebar = screen.getByRole('complementary');
     const mobileSidebarTrigger = screen.getByRole('button');
-    const companyConfigLink = screen.getByLabelText('Topbar.profile');
+    const companyConfigLink = screen.getByLabelText('components.Topbar.profile');
 
     expect(desktopSidebar).toBeInTheDocument();
     expect(mobileSidebarTrigger).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe('Sidebar', () => {
     const mobileSidebarTrigger = screen.getByRole('button');
     await userEvent.click(mobileSidebarTrigger);
 
-    const dashboardLink = screen.getByRole('link', { name: 'Sidebar.dashboard' });
+    const dashboardLink = screen.getByRole('link', { name: 'components.Sidebar.dashboard' });
     await userEvent.click(dashboardLink);
 
     const sidebarDialog = screen.queryByRole('dialog');

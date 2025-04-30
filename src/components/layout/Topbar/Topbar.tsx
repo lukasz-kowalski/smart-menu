@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
 const Topbar = () => {
-  const t = useTranslations('Topbar');
+  const t = useTranslations('components.Topbar');
 
   return (
     <nav className="p-4 flex justify-end hidden md:flex">

@@ -5,13 +5,20 @@
   "Meta": {
     "description": "Smart Menu - Inteligentne menu dla Twojej restauracji"
   },
-  "Sidebar": {
-    "dashboard": "Panel główny",
-    "menu": "Menu",
-    "inventory": "Magazyn",
-    "alerts": "Alerty"
+  "pages": {
+    "menu": {
+      "title": "Zarządzanie menu"
+    }
   },
-  "Topbar": {
-    "profile": "Link do profilu restauracji"
+  "components": {
+    "Sidebar": {
+      "dashboard": "Panel główny",
+      "menu": "Menu",
+      "inventory": "Magazyn",
+      "alerts": "Alerty"
+    },
+    "Topbar": {
+      "profile": "Link do profilu restauracji"
+    }
   }
 }

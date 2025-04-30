@@ -5,13 +5,20 @@
   "Meta": {
     "description": "Smart Menu - A smart menu for your restaurant"
   },
-  "Sidebar": {
-    "dashboard": "Dashboard",
-    "menu": "Menu",
-    "inventory": "Inventory",
-    "alerts": "Alerts"
+  "pages": {
+    "menu": {
+      "title": "Menu management"
+    }
   },
-  "Topbar": {
-    "profile": "Link to restaurant profile"
+  "components": {
+    "Sidebar": {
+      "dashboard": "Dashboard",
+      "menu": "Menu",
+      "inventory": "Inventory",
+      "alerts": "Alerts"
+    },
+    "Topbar": {
+      "profile": "Link to restaurant profile"
+    }
   }
 }

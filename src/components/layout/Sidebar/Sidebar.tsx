@@ -18,22 +18,22 @@ const Sidebar = () => {
 
   const navItems: NavItem[] = [
     {
-      label: t('Sidebar.dashboard'),
+      label: t('components.Sidebar.dashboard'),
       href: '/',
       icon: <Home className="h-5 w-5" />,
     },
     {
-      label: t('Sidebar.menu'),
+      label: t('components.Sidebar.menu'),
       href: '/menu',
       icon: <UtensilsCrossed className="h-5 w-5" />,
     },
     {
-      label: t('Sidebar.inventory'),
+      label: t('components.Sidebar.inventory'),
       href: '/inventory',
       icon: <Warehouse className="h-5 w-5" />,
     },
     {
-      label: t('Sidebar.alerts'),
+      label: t('components.Sidebar.alerts'),
       href: '/alerts',
       icon: <Bell className="h-5 w-5" />,
     },
@@ -69,7 +69,7 @@ const Sidebar = () => {
             <NavLinks navItems={navItems} closeMenu={closeMenu} />
           </SheetContent>
         </Sheet>
-        <Link href="/company-config" aria-label={t('Topbar.profile')}>
+        <Link href="/company-config" aria-label={t('components.Topbar.profile')}>
           <User2 className="h-6 w-6" />
         </Link>
       </div>

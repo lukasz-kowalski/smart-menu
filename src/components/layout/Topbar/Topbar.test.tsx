@@ -5,7 +5,7 @@ describe('Topbar', () => {
   it('should render the Topbar component', () => {
     render(<Topbar />);
 
-    const companyConfigLink = screen.getByLabelText('Topbar.profile');
+    const companyConfigLink = screen.getByLabelText('components.Topbar.profile');
 
     expect(companyConfigLink).toBeInTheDocument();
   });
