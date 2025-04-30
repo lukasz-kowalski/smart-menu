@@ -1,78 +1,39 @@
 import { render, screen } from '@testing-library/react';
-import { useMediaQuery } from 'usehooks-ts';
 import userEvent from '@testing-library/user-event';
 
 import { Sidebar } from '@/components/layout/Sidebar';
 
-jest.mock('usehooks-ts', () => ({
-  useMediaQuery: jest.fn(),
-}));
-
 describe('Sidebar', () => {
-  it('should display mobile version when width is below 768px', () => {
-    (useMediaQuery as jest.Mock).mockReturnValue(false);
+  it('should render both desktop and mobile sidebar in DOM', () => {
     render(<Sidebar />);
 
-    const desktopSidebar = screen.queryByRole('complementary');
+    const desktopSidebar = screen.getByRole('complementary');
     const mobileSidebarTrigger = screen.getByRole('button');
     const companyConfigLink = screen.getByLabelText('Topbar.profile');
 
-    expect(desktopSidebar).not.toBeInTheDocument();
+    expect(desktopSidebar).toBeInTheDocument();
     expect(mobileSidebarTrigger).toBeInTheDocument();
     expect(companyConfigLink).toBeInTheDocument();
   });
 
-  it('should display desktop version when width is above 768px', () => {
-    (useMediaQuery as jest.Mock).mockReturnValue(true);
+  it('should open sidebar drawer when mobile menu button is clicked', async () => {
     render(<Sidebar />);
-
-    const desktopSidebar = screen.getByRole('complementary');
-    const mobileSidebarTrigger = screen.queryByRole('button');
-    const companyConfigLink = screen.queryByLabelText('Topbar.profile');
-
-    expect(desktopSidebar).toBeInTheDocument();
-    expect(mobileSidebarTrigger).not.toBeInTheDocument();
-    expect(companyConfigLink).not.toBeInTheDocument();
-  });
-
-  it('should open sidebar on mobile version', async () => {
-    (useMediaQuery as jest.Mock).mockReturnValue(false);
-    render(<Sidebar />);
-
     const mobileSidebarTrigger = screen.getByRole('button');
     await userEvent.click(mobileSidebarTrigger);
 
-    const sidebar = screen.getByRole('dialog');
-    expect(sidebar).toBeInTheDocument();
+    const sidebarDialog = screen.getByRole('dialog');
+    expect(sidebarDialog).toBeInTheDocument();
   });
 
-  it('should close sidebar on mobile version', async () => {
-    (useMediaQuery as jest.Mock).mockReturnValue(false);
+  it('should close sidebar drawer when menu item is clicked', async () => {
     render(<Sidebar />);
-
     const mobileSidebarTrigger = screen.getByRole('button');
     await userEvent.click(mobileSidebarTrigger);
 
-    const sidebarCloseButton = screen.getByRole('button', { hidden: false });
-    await userEvent.click(sidebarCloseButton);
-
-    const sidebar = screen.queryByRole('dialog');
-
-    expect(sidebar).not.toBeInTheDocument();
-  });
-
-  it('should close sidebar when menu item is clicked on mobile version', async () => {
-    (useMediaQuery as jest.Mock).mockReturnValue(false);
-    render(<Sidebar />);
-
-    const mobileSidebarTrigger = screen.getByRole('button');
-    await userEvent.click(mobileSidebarTrigger);
-
-    const dashboardLink = screen.getByText('Sidebar.dashboard');
+    const dashboardLink = screen.getByRole('link', { name: 'Sidebar.dashboard' });
     await userEvent.click(dashboardLink);
 
-    const sidebar = screen.queryByRole('dialog');
-
-    expect(sidebar).not.toBeInTheDocument();
+    const sidebarDialog = screen.queryByRole('dialog');
+    expect(sidebarDialog).not.toBeInTheDocument();
   });
 });
