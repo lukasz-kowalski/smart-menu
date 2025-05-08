@@ -1,5 +1,3 @@
-'use client';
-
 import { User2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 

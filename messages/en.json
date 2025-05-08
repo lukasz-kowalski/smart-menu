@@ -7,7 +7,17 @@
   },
   "pages": {
     "menu": {
-      "title": "Menu management"
+      "title": "Menu management",
+      "addItem": "Add new item",
+      "table": {
+        "header": {
+          "name": "Name",
+          "description": "Description",
+          "price": "Price",
+          "status": "Status",
+          "actions": "Actions"
+        }
+      }
     }
   },
   "components": {

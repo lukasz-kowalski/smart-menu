@@ -7,7 +7,17 @@
   },
   "pages": {
     "menu": {
-      "title": "Zarządzanie menu"
+      "title": "Zarządzanie menu",
+      "addItem": "Dodaj nową pozycję",
+      "table": {
+        "header": {
+          "name": "Nazwa",
+          "description": "Opis",
+          "price": "Cena",
+          "status": "Status",
+          "actions": "Akcje"
+        }
+      }
     }
   },
   "components": {
