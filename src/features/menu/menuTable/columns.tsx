@@ -4,7 +4,7 @@ import { ColumnDef } from '@tanstack/react-table';
 
 import { MenuItem } from '@/features/menu/menuTable/MenuTable.types';
 import { formatCurrency } from '@/lib/numbers';
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@/components/info/Badge';
 
 export const columns: ColumnDef<MenuItem>[] = [
   {
@@ -31,7 +31,7 @@ export const columns: ColumnDef<MenuItem>[] = [
     header: 'status',
     cell: ({ row }) => {
       return (
-        <Badge variant={row.getValue('status') === 'available' ? 'success' : 'destructive'}>
+        <Badge variant={row.getValue('status') === 'available' ? 'success' : 'danger'} size="sm">
           {row.original.status}
         </Badge>
       );

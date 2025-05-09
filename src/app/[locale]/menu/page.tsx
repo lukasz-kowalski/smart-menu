@@ -40,9 +40,7 @@ export default function MenuPage() {
     <>
       <PageTitle title={t('title')} />
       <div className="mt-4 md:mt-8">
-        <Button variant="primary" disabled>
-          + {t('addItem')}
-        </Button>
+        <Button variant="primary">+ {t('addItem')}</Button>
 
         <div className="mt-4 md:mt-8">
           <MenuTable<MenuItem, unknown> columns={columns} data={data} />
