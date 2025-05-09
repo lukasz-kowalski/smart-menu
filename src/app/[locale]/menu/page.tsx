@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 import { PageTitle } from '@/components/layout/PageTitle';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/action/Button';
 import MenuTable from '@/features/menu/menuTable/MenuTable';
 import { columns } from '@/features/menu/menuTable/columns';
 import { MenuItem } from '@/features/menu/menuTable/MenuTable.types';
@@ -40,7 +40,9 @@ export default function MenuPage() {
     <>
       <PageTitle title={t('title')} />
       <div className="mt-4 md:mt-8">
-        <Button variant="action">+ {t('addItem')}</Button>
+        <Button variant="primary" disabled>
+          + {t('addItem')}
+        </Button>
 
         <div className="mt-4 md:mt-8">
           <MenuTable<MenuItem, unknown> columns={columns} data={data} />

@@ -4,6 +4,7 @@ import { ColumnDef } from '@tanstack/react-table';
 
 import { MenuItem } from '@/features/menu/menuTable/MenuTable.types';
 import { formatCurrency } from '@/lib/numbers';
+import { Badge } from '@/components/ui/badge';
 
 export const columns: ColumnDef<MenuItem>[] = [
   {
@@ -28,6 +29,13 @@ export const columns: ColumnDef<MenuItem>[] = [
   {
     accessorKey: 'status',
     header: 'status',
+    cell: ({ row }) => {
+      return (
+        <Badge variant={row.getValue('status') === 'available' ? 'success' : 'destructive'}>
+          {row.original.status}
+        </Badge>
+      );
+    },
   },
   {
     id: 'actions',
