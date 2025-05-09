@@ -33,12 +33,16 @@ export default async function LocaleLayout({ children, params }: PropsWithChildr
 
   return (
     <html lang={locale}>
-      <body className="antialiased bg-slate-50">
+      <body className="antialiased bg-slate-50 min-h-screen">
         <NextIntlClientProvider locale={locale}>
-          <Topbar />
-          <div className="mx-auto max-w-7xl px-4 py-2">
-            <Sidebar />
-            <main className="flex-1 md:ml-32 p-4">{children}</main>
+          <div className="min-h-screen max-w-screen-xl mx-auto px-4">
+            <div className="md:flex gap-8">
+              <Sidebar />
+              <div>
+                <Topbar />
+                <main>{children}</main>
+              </div>
+            </div>
           </div>
         </NextIntlClientProvider>
       </body>

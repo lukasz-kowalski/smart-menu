@@ -42,7 +42,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden md:fixed md:inset-y-0 md:left-0 md:flex md:w-64 md:flex-col md:border-r md:bg-slate-900 md:text-slate-100 md:shadow-sm z-30">
+      <aside className="min-h-screen hidden md:block md:flex md:w-64 md:flex-col md:border-r md:bg-slate-900 md:text-slate-100 md:shadow-sm z-30">
         <div className="h-16 flex items-center justify-center px-4 border-b border-slate-700">
           <span className="text-xl font-bold tracking-tight">{t('App.appName')}</span>
         </div>
