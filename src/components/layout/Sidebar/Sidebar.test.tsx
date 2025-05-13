@@ -7,33 +7,35 @@ describe('Sidebar', () => {
   it('should render both desktop and mobile sidebar in DOM', () => {
     render(<Sidebar />);
 
-    const desktopSidebar = screen.getByRole('complementary');
-    const mobileSidebarTrigger = screen.getByRole('button');
+    const desktopSidebar = screen.getByTestId('desktop-sidebar');
+    const mobileSidebar = screen.getByTestId('mobile-sidebar');
     const companyConfigLink = screen.getByLabelText('components.Topbar.profile');
 
     expect(desktopSidebar).toBeInTheDocument();
-    expect(mobileSidebarTrigger).toBeInTheDocument();
+    expect(mobileSidebar).toBeInTheDocument();
     expect(companyConfigLink).toBeInTheDocument();
   });
 
   it('should open sidebar drawer when mobile menu button is clicked', async () => {
     render(<Sidebar />);
-    const mobileSidebarTrigger = screen.getByRole('button');
+    const [mobileSidebarTrigger] = screen.getAllByRole('button');
     await userEvent.click(mobileSidebarTrigger);
 
     const sidebarDialog = screen.getByRole('dialog');
-    expect(sidebarDialog).toBeInTheDocument();
+    expect(sidebarDialog).toHaveClass('translate-x-0');
   });
 
   it('should close sidebar drawer when menu item is clicked', async () => {
     render(<Sidebar />);
-    const mobileSidebarTrigger = screen.getByRole('button');
+    const [mobileSidebarTrigger] = screen.getAllByRole('button');
     await userEvent.click(mobileSidebarTrigger);
 
-    const dashboardLink = screen.getByRole('link', { name: 'components.Sidebar.dashboard' });
-    await userEvent.click(dashboardLink);
+    const mobileDashboardLink = screen.getAllByRole('link', {
+      name: 'components.Sidebar.dashboard',
+    })[1];
+    await userEvent.click(mobileDashboardLink);
 
-    const sidebarDialog = screen.queryByRole('dialog');
-    expect(sidebarDialog).not.toBeInTheDocument();
+    const sidebarDialog = screen.getByTestId('mobile-sidebar');
+    expect(sidebarDialog).toHaveClass('-translate-x-full');
   });
 });

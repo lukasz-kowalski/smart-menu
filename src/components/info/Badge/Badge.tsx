@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 interface Props {
   variant?: 'info' | 'success' | 'neutral' | 'warning' | 'danger';
@@ -25,6 +25,6 @@ const sizeStyles = {
 
 export const Badge = ({ children, variant = 'info', size = 'md' }: PropsWithChildren<Props>) => {
   return (
-    <span className={clsx(baseStyles, variantStyles[variant], sizeStyles[size])}>{children}</span>
+    <span className={cn(baseStyles, variantStyles[variant], sizeStyles[size])}>{children}</span>
   );
 };

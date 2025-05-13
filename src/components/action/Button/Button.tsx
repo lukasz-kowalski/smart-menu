@@ -1,9 +1,10 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-import clsx from 'clsx';
+
+import { cn } from '@/lib/utils';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'neutral' | 'danger' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
   loading?: boolean;
@@ -22,6 +23,7 @@ const variantStyles = {
 };
 
 const sizeStyles = {
+  xs: 'px-0 py-0 text-xs',
   sm: 'px-3 py-1.5 text-sm',
   md: 'px-4 py-2 text-base',
   lg: 'px-5 py-2.5 text-lg',
@@ -46,7 +48,7 @@ export const Button = ({
     <button
       {...props}
       disabled={isDisabled}
-      className={clsx(
+      className={cn(
         baseStyles,
         variantStyles[variant],
         sizeStyles[size],

@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 import { Link, usePathname } from '@/i18n/navigation';
 
@@ -24,7 +24,7 @@ const NavLinks = ({ navItems, closeMenu }: Props) => {
             key={href}
             href={href}
             onClick={closeMenu}
-            className={clsx(
+            className={cn(
               'flex items-center gap-2 p-2 rounded hover:bg-slate-800 transition-colors',
               isActive ? 'bg-slate-800 text-white font-semibold' : 'hover:bg-slate-800',
             )}
