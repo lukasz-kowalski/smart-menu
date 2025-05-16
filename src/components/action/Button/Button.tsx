@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'neutral' | 'danger' | 'outline';
-  size?: 'xs' | 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'full';
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
   loading?: boolean;
@@ -27,6 +27,7 @@ const sizeStyles = {
   sm: 'px-3 py-1.5 text-sm',
   md: 'px-4 py-2 text-base',
   lg: 'px-5 py-2.5 text-lg',
+  full: 'w-full px-4 py-2 text-base',
 };
 
 const disabledStyles = 'opacity-60 pointer-events-none';

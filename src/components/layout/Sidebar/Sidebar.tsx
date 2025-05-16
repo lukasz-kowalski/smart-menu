@@ -1,7 +1,6 @@
 'use client';
 
 import { Menu, UtensilsCrossed, Warehouse, Bell, Home, User2, SquareX } from 'lucide-react';
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { cn } from '@/lib/utils';
@@ -9,17 +8,12 @@ import { Link } from '@/i18n/navigation';
 import NavLinks from '@/components/layout/Sidebar/NavLinks';
 import { NavItem } from '@/components/layout/Sidebar/NavLinks.types';
 import { Button } from '@/components/action/Button';
+import { useOpen } from '@/hooks/useOpen/useOpen';
 
 const Sidebar = () => {
   const t = useTranslations();
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openMenu = () => {
-    setIsOpen(true);
-  };
-
-  const closeMenu = () => setIsOpen(false);
+  const { isOpen, open, close } = useOpen();
 
   const navItems: NavItem[] = [
     {
@@ -61,7 +55,7 @@ const Sidebar = () => {
       <div className="md:hidden">
         <div className="flex items-center justify-between p-2">
           <Button
-            onClick={openMenu}
+            onClick={open}
             variant="outline"
             size="xs"
             className="border-0 outline-none"
@@ -79,7 +73,7 @@ const Sidebar = () => {
             'fixed inset-0 bg-black opacity-50 z-40 transition-opacity',
             !isOpen && 'hidden',
           )}
-          onClick={closeMenu}
+          onClick={close}
         />
 
         <aside
@@ -95,7 +89,7 @@ const Sidebar = () => {
             <div className="flex justify-between">
               <h2 className="text-lg font-bold">{t('App.appName')}</h2>
               <Button
-                onClick={closeMenu}
+                onClick={close}
                 variant="outline"
                 size="xs"
                 className="border-0 outline-none focus:ring-0 focus:outline-none focus:ring-transparent focus:ring-offset-0"
@@ -104,33 +98,10 @@ const Sidebar = () => {
                 <SquareX className="h-6 w-6 text-white" />
               </Button>
             </div>
-            <NavLinks navItems={navItems} closeMenu={closeMenu} />
+            <NavLinks navItems={navItems} closeMenu={close} />
           </div>
         </aside>
       </div>
-      {/* <div className="md:hidden p-4 border-b flex items-center justify-between">
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild>
-            <button className="p-2 rounded-md hover:bg-muted">
-              <Menu className="h-6 w-6" />
-            </button>
-          </SheetTrigger>
-          <SheetContent
-            side="left"
-            className="w-64 bg-slate-900 text-slate-100"
-            aria-description="Sidebar menu"
-            aria-describedby={undefined}
-          >
-            <SheetTitle className="text-xl font-bold tracking-tight mt-4 mb-2 pl-2 text-slate-100">
-              {t('App.appName')}
-            </SheetTitle>
-            <NavLinks navItems={navItems} closeMenu={closeMenu} />
-          </SheetContent>
-        </Sheet>
-        <Link href="/company-config" aria-label={t('components.Topbar.profile')}>
-          <User2 className="h-6 w-6" />
-        </Link>
-      </div> */}
     </>
   );
 };

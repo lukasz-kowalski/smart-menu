@@ -101,6 +101,9 @@ export const Sizes: Story = {
       <Button {...args} size="lg">
         Large
       </Button>
+      <Button {...args} size="full">
+        Full Width
+      </Button>
     </div>
   ),
 };
