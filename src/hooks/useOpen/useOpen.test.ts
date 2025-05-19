@@ -8,6 +8,12 @@ describe('useOpen', () => {
     expect(result.current.isOpen).toBe(false);
   });
 
+  it('should set initial state by passing initialOpen argument', () => {
+    const { result } = renderHook(() => useOpen(true));
+
+    expect(result.current.isOpen).toBe(true);
+  });
+
   it('should open when open is called', () => {
     const { result } = renderHook(() => useOpen());
 
