@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useOpen } from './useOpen';
+import { useOpen } from '@/hooks/useOpen';
 
 describe('useOpen', () => {
   it('should be closed by default', () => {

@@ -38,9 +38,9 @@ export default async function LocaleLayout({ children, params }: PropsWithChildr
           <div className="min-h-screen max-w-screen-xl mx-auto">
             <div className="md:flex gap-8">
               <Sidebar />
-              <div className="flex-1">
+              <div className="flex-1 md:max-w-[calc(100%-16rem)]">
                 <Topbar />
-                <main className="p-2 md:p-0">{children}</main>
+                <main className="p-2 md:p-0 md:pr-4">{children}</main>
               </div>
             </div>
           </div>

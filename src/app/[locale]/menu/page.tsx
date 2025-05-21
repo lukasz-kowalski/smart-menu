@@ -2,11 +2,8 @@ import { useTranslations } from 'next-intl';
 
 import { PageTitle } from '@/components/layout/PageTitle';
 import { Button } from '@/components/action/Button';
-import MenuTable from '@/features/menu/menuTable/MenuTable';
-import { columns } from '@/features/menu/menuTable/columns';
-import { MenuItem } from '@/features/menu/menuTable/MenuTable.types';
 import { Menu } from '@/features/menu/menu/Menu';
-import { Category } from '@/features/menu/menu/Menu.types';
+import { Category, MenuItem } from '@/features/menu/menu/Menu.types';
 
 const data: MenuItem[] = [
   {
@@ -61,10 +58,6 @@ export default function MenuPage() {
 
         <div className="mt-4 md:mt-8">
           <Menu menu={categories} />
-        </div>
-
-        <div className="mt-4 md:mt-8">
-          <MenuTable<MenuItem, unknown> columns={columns} data={data} />
         </div>
       </div>
     </>

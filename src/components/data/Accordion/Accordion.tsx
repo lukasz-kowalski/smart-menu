@@ -1,6 +1,6 @@
 import { PropsWithChildren, useId } from 'react';
 
-import { useOpen } from '@/hooks/useOpen/useOpen';
+import { useOpen } from '@/hooks/useOpen';
 import { Button } from '@/components/action/Button';
 import { cn } from '@/lib/utils';
 
@@ -40,7 +40,7 @@ export const Accordion = ({
         aria-labelledby={buttonId}
         aria-hidden={!isOpen}
         className={cn(
-          'transition-all duration-300 ease-in-out transform-gpu origin-top overflow-hidden',
+          'transition-all duration-300 ease-in-out transform-gpu origin-top',
           isOpen ? 'opacity-100 scale-y-100 max-h-[5000px]' : 'opacity-0 scale-y-0 max-h-0',
         )}
       >

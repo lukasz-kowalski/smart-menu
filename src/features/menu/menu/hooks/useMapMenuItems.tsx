@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { MenuItem } from '@/features/menu/menu/Menu.types';
 import { DataStackItemType } from '@/components/data/DataStack/DataStack.types';
 import { formatCurrency } from '@/lib/numbers';
+import { Badge } from '@/components/info/Badge';
 
 type Output = {
   mapMenuItems: (menuItems: MenuItem[]) => DataStackItemType[];
@@ -31,7 +32,11 @@ export const useMapMenuItems = (): Output => {
             },
             {
               label: t('status'),
-              value: item.status,
+              value: (
+                <Badge variant={item.status === 'available' ? 'success' : 'danger'} size="sm">
+                  {item.status}
+                </Badge>
+              ),
             },
             {
               label: t('actions'),

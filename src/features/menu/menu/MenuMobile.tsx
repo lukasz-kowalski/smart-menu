@@ -1,4 +1,4 @@
-import { DataStack } from '@/components/data/DataStack/DataStack';
+import { DataStack } from '@/components/data/DataStack';
 import { useMapMenuItems } from '@/features/menu/menu/hooks/useMapMenuItems';
 import { Category } from '@/features/menu/menu/Menu.types';
 
@@ -12,7 +12,7 @@ export const MenuMobile = ({ category }: Props) => {
   const mappedItems = mapMenuItems(category.items);
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden" data-testid="menu-mobile">
       <DataStack items={mappedItems} />
     </div>
   );

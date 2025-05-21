@@ -8,7 +8,7 @@ import { Link } from '@/i18n/navigation';
 import NavLinks from '@/components/layout/Sidebar/NavLinks';
 import { NavItem } from '@/components/layout/Sidebar/NavLinks.types';
 import { Button } from '@/components/action/Button';
-import { useOpen } from '@/hooks/useOpen/useOpen';
+import { useOpen } from '@/hooks/useOpen';
 
 const Sidebar = () => {
   const t = useTranslations();
