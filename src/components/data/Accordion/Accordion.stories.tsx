@@ -10,7 +10,7 @@ const meta: Meta<typeof Accordion> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'neutral', 'danger', 'outline'],
+      options: ['blue', 'green', 'neutral', 'red', 'yellow'],
     },
     title: {
       control: 'text',

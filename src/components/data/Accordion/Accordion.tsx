@@ -1,13 +1,25 @@
 import { PropsWithChildren, useId } from 'react';
 
 import { useOpen } from '@/hooks/useOpen';
-import { Button } from '@/components/action/Button';
 import { cn } from '@/lib/utils';
+
+export type AccordionVariant = 'green' | 'blue' | 'neutral' | 'red' | 'yellow';
 
 type AccordionProps = {
   title: string;
-  variant?: 'primary' | 'secondary' | 'neutral' | 'danger' | 'outline';
+  variant?: AccordionVariant;
   initialOpen?: boolean;
+};
+
+const baseStyles =
+  'w-full px-4 py-2 inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 cursor-pointer';
+
+const variantStyles = {
+  blue: 'bg-blue-900 text-white hover:bg-blue-800 focus:ring-blue-400',
+  green: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-400',
+  neutral: 'bg-white text-black border border-gray-300 hover:bg-gray-100 focus:ring-gray-400',
+  red: 'bg-red-700 text-white hover:bg-red-800 focus:ring-red-400',
+  yellow: 'bg-yellow-600 text-white hover:bg-yellow-700 focus:ring-yellow-400',
 };
 
 export const Accordion = ({
@@ -24,16 +36,15 @@ export const Accordion = ({
 
   return (
     <div className="rounded-lg shadow-md">
-      <Button
-        variant={variant}
-        size="full"
+      <button
+        className={cn(baseStyles, variantStyles[variant])}
         onClick={toggleOpen}
         aria-expanded={isOpen}
         aria-controls={contentId}
         id={buttonId}
       >
         {title}
-      </Button>
+      </button>
       <div
         id={contentId}
         role="region"
