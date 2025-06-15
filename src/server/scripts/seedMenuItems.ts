@@ -1,12 +1,10 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma';
 
-import { MenuItemStatus } from '../types/enums';
-
-const prisma = new PrismaClient();
+import { MenuItemStatus, Currency } from '../types/enums';
 
 export const seedMenuItems = async () => {
   const category = await prisma.category.findFirst({
-    where: { name: 'pizza' },
+    where: { name: 'Pizza' },
   });
 
   if (!category) {
@@ -18,6 +16,7 @@ export const seedMenuItems = async () => {
       name: 'Margherita',
       description: 'Classic pizza with tomato sauce, mozzarella and basil',
       price: 25.99,
+      currency: Currency.USD,
       status: MenuItemStatus.AVAILABLE,
       categoryId: category.id,
     },
@@ -25,6 +24,7 @@ export const seedMenuItems = async () => {
       name: 'Pepperoni',
       description: 'Spicy pepperoni with mozzarella and tomato sauce',
       price: 28.99,
+      currency: Currency.USD,
       status: MenuItemStatus.AVAILABLE,
       categoryId: category.id,
     },
@@ -32,6 +32,7 @@ export const seedMenuItems = async () => {
       name: 'Quattro Formaggi',
       description: 'Mozzarella, gorgonzola, parmesan and fontina cheese',
       price: 32.5,
+      currency: Currency.USD,
       status: MenuItemStatus.AVAILABLE,
       categoryId: category.id,
     },
@@ -39,6 +40,7 @@ export const seedMenuItems = async () => {
       name: 'Hawaiian',
       description: 'Ham, pineapple, mozzarella and tomato sauce',
       price: 29.99,
+      currency: Currency.USD,
       status: MenuItemStatus.UNAVAILABLE,
       categoryId: category.id,
     },
@@ -46,6 +48,7 @@ export const seedMenuItems = async () => {
       name: 'Vegetariana',
       description: 'Grilled vegetables, mozzarella, tomato sauce and herbs',
       price: 27.5,
+      currency: Currency.USD,
       status: MenuItemStatus.AVAILABLE,
       categoryId: category.id,
     },

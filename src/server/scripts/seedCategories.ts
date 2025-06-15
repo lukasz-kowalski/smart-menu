@@ -1,11 +1,10 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '../lib/prisma';
 
 export const seedCategories = async () => {
   const category = await prisma.category.create({
     data: {
-      name: 'pizza',
+      name: 'Pizza',
+      order: 0,
     },
   });
 

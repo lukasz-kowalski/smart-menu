@@ -1,8 +1,7 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma';
+
 import { seedCategories } from './seedCategories';
 import { seedMenuItems } from './seedMenuItems';
-
-const prisma = new PrismaClient();
 
 const main = async () => {
   console.log('Seeding categories...');
