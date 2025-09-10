@@ -17,6 +17,15 @@
           "status": "Status",
           "actions": "Akcje"
         }
+      },
+      "edit": {
+        "title": "Edytuj pozycję menu",
+        "subtitle": "Wprowadź zmiany w pozycji menu. Kliknij zapisz, gdy skończysz.",
+        "save": "Zapisz zmiany",
+        "cancel": "Anuluj",
+        "name": "Nazwa",
+        "description": "Opis",
+        "price": "Cena"
       }
     }
   },
@@ -30,5 +39,8 @@
     "Topbar": {
       "profile": "Link do profilu restauracji"
     }
+  },
+  "errors": {
+    "globalError": "Wystąpił błąd, proszę spróbować ponownie później."
   }
 }

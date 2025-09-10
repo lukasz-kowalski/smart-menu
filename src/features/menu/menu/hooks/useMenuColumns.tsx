@@ -4,6 +4,7 @@ import { MenuItem } from '@/features/menu/menu/Menu.types';
 import { ColumnType } from '@/components/data/Table/Table.types';
 import { formatCurrency } from '@/lib/numbers';
 import { Badge } from '@/components/info/Badge';
+import { EditMenuItem } from '@/features/menu/menu/menuItem/edit/EditMenuItem';
 
 type Output = {
   columns: ColumnType<MenuItem>[];
@@ -25,7 +26,11 @@ export const useMenuColumns = (): Output => {
         </Badge>
       ),
     },
-    { key: 'actions', header: t('actions'), render: (row) => <button>Edit {row.name}</button> },
+    {
+      key: 'actions',
+      header: t('actions'),
+      render: (row) => <EditMenuItem item={row} />,
+    },
   ];
 
   return { columns };

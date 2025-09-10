@@ -1,3 +1,5 @@
+'use client';
+
 import { PropsWithChildren, useId } from 'react';
 
 import { useOpen } from '@/hooks/useOpen';

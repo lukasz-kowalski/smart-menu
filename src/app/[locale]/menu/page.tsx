@@ -17,7 +17,7 @@ export default async function MenuPage() {
         <Button variant="primary">+ {t('addItem')}</Button>
 
         <div className="mt-4 md:mt-8">
-          <Menu menu={categoriesFromBackend} />
+          <Menu initialData={categoriesFromBackend} />
         </div>
       </div>
     </>

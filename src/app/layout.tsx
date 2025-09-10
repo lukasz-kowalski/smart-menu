@@ -1,5 +1,7 @@
 import { PropsWithChildren } from 'react';
 
+import { ReactQueryProvider } from '@/app/providers/ReactQueryProvider';
+
 export default function RootLayout({ children }: PropsWithChildren) {
-  return children;
+  return <ReactQueryProvider>{children}</ReactQueryProvider>;
 }

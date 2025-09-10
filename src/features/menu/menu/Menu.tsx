@@ -1,5 +1,6 @@
 'use client';
 
+import { useCategories } from '@/hooks/api/menu/categories/useCategories';
 import { Category } from '@/features/menu/menu/Menu.types';
 import { MenuDesktop } from '@/features/menu/menu/MenuDesktop';
 import { MenuMobile } from '@/features/menu/menu/MenuMobile';
@@ -7,12 +8,14 @@ import { Accordion, AccordionVariant } from '@/components/data/Accordion';
 import { getVariant } from '@/lib/styles/getVariant';
 
 type Props = {
-  menu: Category[];
+  initialData: Category[];
 };
 
 const categoryVariants: AccordionVariant[] = ['green', 'neutral', 'red', 'yellow', 'blue'];
 
-export const Menu = ({ menu }: Props) => {
+export const Menu = ({ initialData }: Props) => {
+  const { data: menu } = useCategories(initialData);
+
   return (
     <div className="overflow-x-auto space-y-4" data-testid="menu">
       {menu.map((category, categoryIndex) => {

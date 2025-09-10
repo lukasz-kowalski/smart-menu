@@ -15,15 +15,17 @@ export const getMenuCategories = async () => {
             price: true,
             currency: true,
             status: true,
+            categoryId: true,
+          },
+          orderBy: {
+            createdAt: 'desc',
           },
         },
       },
       orderBy: {
-        createdAt: 'desc',
+        order: 'asc',
       },
     });
-
-    console.log(categories);
 
     return categories;
   } catch (error) {

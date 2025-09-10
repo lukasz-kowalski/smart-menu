@@ -5,6 +5,7 @@ export type MenuItem = {
   price: number;
   status: 'available' | 'unavailable';
   currency: string;
+  categoryId: string;
 };
 
 export type Category = {
