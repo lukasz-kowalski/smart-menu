@@ -14,6 +14,7 @@ describe('useMenuColumns', () => {
       price: 25,
       currency: 'USD',
       status: 'available',
+      categoryId: 'cat1',
     };
 
     const output = result.current.columns;
